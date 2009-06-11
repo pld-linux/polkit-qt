@@ -1,5 +1,5 @@
 #
-%define		rev	r973053
+%define		rev	r980477
 
 Summary:	Polkit-qt use the PolicyKit API through Qt-styled API
 Name:		polkit-qt
@@ -12,9 +12,9 @@ BuildRequires:	PolicyKit-devel
 BuildRequires:	automoc4
 BuildRequires:	cmake
 BuildRequires:	pkgconfig
-# svn co svn://anonsvn.kde.org/home/kde/trunk/kdesupport/polkit-qt
+# svn export svn://anonsvn.kde.org/home/kde/trunk/kdesupport/polkit-qt
 Source0:	%{name}-%{rev}.tar.bz2
-# Source0-md5:	4b93f3992cd19846146bdbc0ae679416
+# Source0-md5:	04428dc051d28195e62672ac2fbe42aa
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
