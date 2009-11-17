@@ -9,8 +9,12 @@ License:	GPL v2
 Group:		Libraries
 URL:		http://www.kde.org/
 BuildRequires:	PolicyKit-devel
+BuildRequires:	QtDBus-devel
+BuildRequires:	QtGui-devel
 BuildRequires:	automoc4
 BuildRequires:	cmake
+BuildRequires:	qt4-build
+BuildRequires:	qt4-qmake
 BuildRequires:	pkgconfig
 # svn export svn://anonsvn.kde.org/home/kde/trunk/kdesupport/polkit-qt
 Source0:	%{name}-%{rev}.tar.bz2
@@ -22,7 +26,6 @@ Polkit-qt is a library that lets developers use the PolicyKit API
 through a nice Qt-styled API. It is mainly a wrapper around QAction
 and QAbstractButton that lets you integrate those two component easily
 with PolicyKit.
-
 
 %package devel
 Summary:	Polkit-qt use the PolicyKit API through Qt-styled API
@@ -55,23 +58,23 @@ with PolicyKit.
 install -d build
 cd build
 %cmake \
-		-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-		-LCMS_DIR=%{_libdir} \
-		-DLIB_INSTALL_DIR=%{_libdir} \
-		-DCMAKE_BUILD_TYPE=%{!?debug:release}%{?debug:debug} \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-LCMS_DIR=%{_libdir} \
+	-DLIB_INSTALL_DIR=%{_libdir} \
+	-DCMAKE_BUILD_TYPE=%{!?debug:release}%{?debug:debug} \
 %if "%{_lib}" == "lib64"
-		-DLIB_SUFFIX=64 \
+	-DLIB_SUFFIX=64 \
 %endif
-		../
+	../
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} -C build install \
-        DESTDIR=$RPM_BUILD_ROOT \
-        kde_htmldir=%{_kdedocdir} \
-        kde_libs_htmldir=%{_kdedocdir}
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir=%{_kdedocdir} \
+	kde_libs_htmldir=%{_kdedocdir}
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
