@@ -1,12 +1,15 @@
 #
-%define		rev	r980477
+%define		rev	r1064260
 
 Summary:	Polkit-qt use the PolicyKit API through Qt-styled API
 Name:		polkit-qt
 Version:	0.9.2
-Release:	0.%{rev}.2
+Release:	0.%{rev}.1
 License:	GPL v2
 Group:		Libraries
+# svn export svn://anonsvn.kde.org/home/kde/trunk/kdesupport/polkit-qt
+Source0:	%{name}-%{rev}.tar.gz
+# Source0-md5:	903fe6ada7aa952b4b1986788e4b3fbf
 URL:		http://www.kde.org/
 BuildRequires:	PolicyKit-devel
 BuildRequires:	QtDBus-devel
@@ -16,9 +19,6 @@ BuildRequires:	cmake
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
 BuildRequires:	pkgconfig
-# svn export svn://anonsvn.kde.org/home/kde/trunk/kdesupport/polkit-qt
-Source0:	%{name}-%{rev}.tar.bz2
-# Source0-md5:	04428dc051d28195e62672ac2fbe42aa
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
