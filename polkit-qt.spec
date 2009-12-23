@@ -1,23 +1,22 @@
-#
-%define		rev	r1064260
+%define		qtver	4.6.0
 
 Summary:	Polkit-qt use the PolicyKit API through Qt-styled API
 Name:		polkit-qt
-Version:	0.9.2
-Release:	0.%{rev}.1
+Version:	0.9.3
+Release:	1
 License:	GPL v2
 Group:		Libraries
-# svn export svn://anonsvn.kde.org/home/kde/trunk/kdesupport/polkit-qt
-Source0:	%{name}-%{rev}.tar.gz
-# Source0-md5:	903fe6ada7aa952b4b1986788e4b3fbf
+Source0:	ftp://ftp.kde.org/pub/kde/stable/apps/KDE4.x/admin/%{name}-%{version}.tar.bz2
+# Source0-md5:	8be0205f8cb91161fdaf527f7cb6852d
 URL:		http://www.kde.org/
 BuildRequires:	PolicyKit-devel
-BuildRequires:	QtDBus-devel
-BuildRequires:	QtGui-devel
+BuildRequires:	QtCore-devel >= %{qtver}
+BuildRequires:	QtDBus-devel >= %{qtver}
+BuildRequires:	QtGui-devel >= %{qtver}
 BuildRequires:	automoc4
 BuildRequires:	cmake
-BuildRequires:	qt4-build
-BuildRequires:	qt4-qmake
+BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -52,7 +51,7 @@ and QAbstractButton that lets you integrate those two component easily
 with PolicyKit.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 
 %build
 install -d build
@@ -84,17 +83,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %_libdir/libpolkit-qt-core.so.0
-%attr(755,root,root) %_libdir/libpolkit-qt-core.so.0.9.2
+%attr(755,root,root) %ghost %{_libdir}/libpolkit-qt-core.so.?
+%attr(755,root,root) %{_libdir}/libpolkit-qt-core.so.*.*.*
 
 %files gui
 %defattr(644,root,root,755)
-%attr(755,root,root) %_libdir/libpolkit-qt-gui.so.0
-%attr(755,root,root) %_libdir/libpolkit-qt-gui.so.0.9.2
+%attr(755,root,root) %ghost %{_libdir}/libpolkit-qt-gui.so.?
+%attr(755,root,root) %{_libdir}/libpolkit-qt-gui.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%dir %_includedir/PolicyKit/polkit-qt
-%_includedir/PolicyKit/polkit-qt
-%_libdir/*.so
-%_libdir/pkgconfig/*.pc
+%attr(755,root,root) %{_libdir}/libpolkit-qt-core.so
+%attr(755,root,root) %{_libdir}/libpolkit-qt-gui.so
+%{_includedir}/PolicyKit/polkit-qt
+%{_libdir}/pkgconfig/*.pc
