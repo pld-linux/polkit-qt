@@ -27,28 +27,22 @@ and QAbstractButton that lets you integrate those two component easily
 with PolicyKit.
 
 %package devel
-Summary:	Polkit-qt use the PolicyKit API through Qt-styled API
+Summary:	Polkit-qt header files.
 License:	GPL v2
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-gui = %{version}-%{release}
 
 %description devel
-Polkit-qt is a library that lets developers use the PolicyKit API
-through a nice Qt-styled API. It is mainly a wrapper around QAction
-and QAbstractButton that lets you integrate those two component easily
-with PolicyKit.
+Polkit-qt header files.
 
 %package gui
-Summary:	Polkit-qt use the PolicyKit API through Qt-styled API
+Summary:	Polkit-qt GUI
 License:	GPL v2
 Group:		Libraries
 
 %description gui
-Polkit-qt is a library that lets developers use the PolicyKit API
-through a nice Qt-styled API. It is mainly a wrapper around QAction
-and QAbstractButton that lets you integrate those two component easily
-with PolicyKit.
+Polkit-qt GUI.
 
 %prep
 %setup -q
