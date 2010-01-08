@@ -3,7 +3,7 @@
 Summary:	Polkit-qt use the PolicyKit API through Qt-styled API
 Name:		polkit-qt
 Version:	0.9.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/apps/KDE4.x/admin/%{name}-%{version}.tar.bz2
