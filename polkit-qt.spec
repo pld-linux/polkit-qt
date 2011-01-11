@@ -4,7 +4,7 @@ Summary:	Convenience library for using PolicyKit with Qt-styled API
 Summary(pl.UTF-8):	Biblioteka ułatwiająca używanie biblioteki PolicyKit poprzez API w stylu Qt
 Name:		polkit-qt
 Version:	0.9.4
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/apps/KDE4.x/admin/%{name}-%{version}.tar.bz2
